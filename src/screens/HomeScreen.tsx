@@ -19,7 +19,7 @@ const HomeScreen:FC = (props:any) => {
       />
       <Text>{date}</Text>
       </View>
-    </View>
+    </View> 
   );
 };
 
