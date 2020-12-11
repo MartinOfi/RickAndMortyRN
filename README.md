@@ -15,4 +15,13 @@
   <li>Run yarn/npm start and wait a few moments</li>
 </ol> 
 <h2>Images</h2>
-![](
+<div display="inline">
+<img src="images/screen1.png" width="300" height="600">
+<img src="images/screen2.png" width="300" height="600">
+<img src="images/screen3.png" width="300" height="600">
+ <br/>
+</div>
+<div display="inline">
+<img src="images/screen4.png" width="300" height="600">
+<img src="images/screen5.png" width="300" height="600">
+</div>
