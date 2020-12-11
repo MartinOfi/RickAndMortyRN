@@ -1,6 +1,7 @@
   <h1>Rick and Morty Searcher</h1>
-  <p>El buscador de Rick y Morty tiene 3 filtros (characters, locations and episodes), al hacer una busqueda exitosa podremos presionar cada resultado y ver informacion detallada del elemento seleccionado </p>
-  <h2>Steps to start the applications</h2>
+  <p>The Ricky and Morty's searcher counts with 3 different filters we can choose: characters, locations and episodes. After a successful search, we could click on any of the results in order to see specific information about the selected ítem.
+</p>
+  <h2Follow this stepts in order to run the application</h2>
   <p>Requirements</p>
 <ol>
   <li>Node.js </li>
@@ -11,5 +12,6 @@
 <ol>
   <li>Run npm install --global expo-cli in cmd</li>
   <li>Cambiar al directiorio RNchallengeTS (puede ser un cd RNchallengeTS)</li>
-  <li>Run yarn/npm start</li>
+  <li>Run yarn/npm start and wait a few moments</li>
 </ol> 
+<h2>Images</h2>
