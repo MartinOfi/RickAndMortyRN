@@ -47,25 +47,7 @@ const CharQuery: FC<ICharactersQueryProps> = ({ text }) => {
       variables: { name: text, page: page },
     });
 
-    const NextPage=()=> {
-      if (data.characters.info.pages != page) {
-        setPage(data.characters.info.next);
-        setLB(false);
-        if (data.characters.info.pages == data.characters.info.next) {
-          setRB(true);
-        }
-      }
-    }
-    const PrevPage=()=> {
-      if (page != 1) {
-        setPage(page - 1);
-        setRB(false);
-
-        if (data.characters.info.prev == 1) {
-          setLB(true);
-        }
-      }
-    }
+ 
     useEffect(() => {
       if (data && !loading && !error) {
         setSearchs([...data.characters.results]);
@@ -84,6 +66,25 @@ const CharQuery: FC<ICharactersQueryProps> = ({ text }) => {
           <Text style={{ fontSize: 20 }}>No results found</Text>
         </View>
       );
+      const NextPage=()=> {
+        if (data.characters.info.pages != page) {
+          setPage(data.characters.info.next);
+          setLB(false);
+          if (data.characters.info.pages == data.characters.info.next) {
+            setRB(true);
+          }
+        }
+      }
+      const PrevPage=()=> {
+        if (page != 1) {
+          setPage(page - 1);
+          setRB(false);
+  
+          if (data.characters.info.prev == 1) {
+            setLB(true);
+          }
+        }
+      }
     return (
       <ScrollView>
         <View style={styles.imaglist}>

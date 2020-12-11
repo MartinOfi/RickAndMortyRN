@@ -6,7 +6,6 @@ import Episode from "../../components/episode";
 
 interface IEpisodesQueryProps {
   text: string;
-
 }
 interface IEpisode {
   id: string;
@@ -52,7 +51,7 @@ const EpiQuery: FC<IEpisodesQueryProps> = ({ text }) => {
       variables: { name: text, page: page },
     });
 
-    const NextPage=()=> {
+    const NextPage = () => {
       if (data.episodes.info.pages != page) {
         setPage(data.episodes.info.next);
         setLB(false);
@@ -60,8 +59,8 @@ const EpiQuery: FC<IEpisodesQueryProps> = ({ text }) => {
           setRB(true);
         }
       }
-    }
-    const PrevPage=()=> {
+    };
+    const PrevPage = () => {
       if (page != 1) {
         setPage(page - 1);
         setRB(false);
@@ -70,7 +69,7 @@ const EpiQuery: FC<IEpisodesQueryProps> = ({ text }) => {
           setLB(true);
         }
       }
-    }
+    };
     useEffect(() => {
       if (data && !loading && !error) {
         setSearchs([...data.episodes.results]);
@@ -92,13 +91,11 @@ const EpiQuery: FC<IEpisodesQueryProps> = ({ text }) => {
     return (
       <ScrollView style={{ width: "100%" }}>
         <View style={styles.imaglist}>
-          {searchs.map((search:IEpisode) => {
-            return (
-              <View key={search.id}>
-                <Episode episode={search} />
-              </View>
-            );
-          })}
+          {searchs.map((search: IEpisode, index: number) => (
+            <View key={index}>
+              <Episode episode={search} />
+            </View>
+          ))}
           <View style={styles.allButtons}>
             {data.episodes.info.pages > 1 ? (
               <>

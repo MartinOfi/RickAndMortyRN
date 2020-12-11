@@ -9,10 +9,10 @@ import {
 import LocQuery from "../graphql/querys/locQuery";
 import { Entypo } from "@expo/vector-icons";
 
-const SearcherScreen = (props:any) => {
+const SearcherScreen = (props: any) => {
   const textParam = props.navigation.getParam("textId");
   const [search, setSearch] = useState("");
-  function ClearInput() {
+  function ClearInput() {    
     setSearch("");
   }
   useEffect(() => {
@@ -22,7 +22,13 @@ const SearcherScreen = (props:any) => {
   }, []);
   return (
     <View style={{ backgroundColor: "white" }}>
-      <View style={{ backgroundColor: "#7034df", flexDirection: "row",borderRadius:35 }}>
+      <View
+        style={{
+          backgroundColor: "#7034df",
+          flexDirection: "row",
+          borderRadius: 35,
+        }}
+      >
         <TextInput
           style={styles.textinput}
           onChangeText={(text) => setSearch(text)}
@@ -44,18 +50,19 @@ const SearcherScreen = (props:any) => {
             onPress={() => {
               props.navigation.navigate({
                 routeName: "Characters",
-                params: { textId: search, params: { textId: search } },
+                params: { textId: search },
               });
             }}
           />
         </View>
         <View style={styles.onebutton}>
-          <Button title="Location" onPress={()=>{}}/>
+          <Button title="Location" onPress={() => {}} />
         </View>
         <View style={styles.onebutton}>
           <Button
             title="Episode"
             onPress={() => {
+              console.log(search)
               props.navigation.navigate({
                 routeName: "Episodes",
                 params: { textId: search },
@@ -82,7 +89,7 @@ const styles = StyleSheet.create({
     marginVertical: "5%",
     borderRadius: 5,
     backgroundColor: "white",
-    fontSize:25
+    fontSize: 25,
   },
   cross: {
     marginTop: 25,

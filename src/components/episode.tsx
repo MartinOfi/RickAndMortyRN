@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Modal,
   View,
-  ScrollView
+  ScrollView,
 } from "react-native";
 
 interface EpisodeProp {
@@ -60,18 +60,18 @@ const Episode: FC<EpisodeProp> = ({ episode }) => {
 
       <Modal visible={modal}>
         <ScrollView style={styles.modal}>
-          <Text style={{ fontSize: 30 ,marginLeft:"25%", fontWeight: 'bold'}}>{episode.name}</Text>
+          <Text style={{ fontSize: 30, marginLeft: "25%", fontWeight: "bold" }}>
+            {episode.name}
+          </Text>
           <Text style={{ fontSize: 20 }}>Release date: {episode.air_date}</Text>
           <Text style={{ fontSize: 20 }}>Episode: {episode.episode}</Text>
-          <Text style={{ fontSize: 20,marginTop:15 }}>Characters: </Text>
-          {chars.map((char:Character) => {
-            return (
-              <View style={styles.conteiner}>
-                <Image source={{ uri: char.image }} style={styles.img} />
-                <Text style={styles.textName}>{char.name}</Text>
-              </View>
-            );
-          })}
+          <Text style={{ fontSize: 20, marginTop: 15 }}>Characters: </Text>
+          {chars.map((char: Character, index: number) => (
+            <View style={styles.conteiner} key={index}>
+              <Image source={{ uri: char.image }} style={styles.img} />
+              <Text style={styles.textName}>{char.name}</Text>
+            </View>
+          ))}
           <Button title="Close" onPress={HideModal} />
         </ScrollView>
       </Modal>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 23,
   },
   textName: {
-    paddingTop: 40, 
+    paddingTop: 40,
     paddingLeft: 15,
     fontSize: 20,
   },

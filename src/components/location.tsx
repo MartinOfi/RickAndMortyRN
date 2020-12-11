@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Modal,
   View,
-  ScrollView
+  ScrollView,
 } from "react-native";
 
 interface LocationProp {
@@ -59,18 +59,18 @@ const Location: FC<LocationProp> = ({ location }) => {
 
       <Modal visible={modal}>
         <ScrollView style={styles.modal}>
-          <Text style={{ fontSize: 30 ,marginLeft:"25%", fontWeight: 'bold'}}>{location.name}</Text>
+          <Text style={{ fontSize: 30, marginLeft: "25%", fontWeight: "bold" }}>
+            {location.name}
+          </Text>
           <Text style={{ fontSize: 20 }}>Type: {location.type}</Text>
           <Text style={{ fontSize: 20 }}>Dimension: {location.dimension}</Text>
-          <Text style={{ fontSize: 20,marginTop:15 }}>Species: </Text>
-          {residents.map((res:Location) => {
-            return (
-              <View style={styles.conteiner} >
-                <Image source={{ uri: res.image }} style={styles.img} />
-                <Text style={styles.textName}>{res.name}</Text>
-              </View>
-            );
-          })}
+          <Text style={{ fontSize: 20, marginTop: 15 }}>Species: </Text>
+          {residents.map((res: Location,index) => (
+            <View style={styles.conteiner} key={index}>
+              <Image source={{ uri: res.image }} style={styles.img} />
+              <Text style={styles.textName}>{res.name}</Text>
+            </View>
+          ))}
           <Button title="Close" onPress={HideModal} />
         </ScrollView>
       </Modal>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 23,
   },
   textName: {
-    paddingTop: 40, 
+    paddingTop: 40,
     paddingLeft: 15,
     fontSize: 20,
   },

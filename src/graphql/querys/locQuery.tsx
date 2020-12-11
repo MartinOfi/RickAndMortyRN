@@ -51,26 +51,9 @@ const LocQuery: FC<ILocationsQueryProps> = ({ text }) => {
     const { data, loading, error } = useQuery(GET_LOCATIONS, {
       variables: { name: text, page: page },
     });
+    
+    
 
-    const NextPage=()=> {
-      if (data.locations.info.pages != page) {
-        setPage(data.locations.info.next);
-        setLB(false);
-        if (data.locations.info.pages == data.locations.info.next) {
-          setRB(true);
-        }
-      }
-    }
-    const PrevPage=()=> {
-      if (page != 1) {
-        setPage(page - 1);
-        setRB(false);
-
-        if (data.locations.info.prev == 1) {
-          setLB(true);
-        }
-      }
-    }
 
     useEffect(() => {
       if (data && !loading && !error) {
@@ -90,18 +73,37 @@ const LocQuery: FC<ILocationsQueryProps> = ({ text }) => {
           <Text style={{ fontSize: 20 }}>No results found</Text>
         </View>
       );
+      const NextPage=()=> {
+        if (data.locations.info.pages != page) {
+          setPage(data.locations.info.next);
+          setLB(false);
+          if (data.locations.info.pages == data.locations.info.next) {
+            setRB(true);
+          }
+        }
+      }
+      const PrevPage=()=> {
+        if (page != 1) {
+          setPage(page - 1);
+          setRB(false);
+  
+          if (data.locations.info.prev == 1) {
+            setLB(true);
+          }
+        }
+      }
     return (
       <ScrollView style={{ width: "100%" }}>
         <View style={styles.imaglist}>
-          {searchs.map((search:ILocation) => {
-            return (
-              <View>
+          {searchs.map((search:ILocation,index:number) => 
+            
+              <View key={index}>
                 <Location location={search}  key={search.id} />
               </View>
-            );
-          })}
+            
+          )}
           <View style={styles.allButtons}>
-            {data.locations.info.pages > 1 ? (
+            {data.locations.info.pages > 1  ? (
               <>
                 <Button title="Prev" onPress={PrevPage} disabled={leftButton} />
                 <Button

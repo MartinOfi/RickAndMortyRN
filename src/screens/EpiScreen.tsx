@@ -15,8 +15,11 @@ const EpiScreen = (props:any) => {
   function ClearInput() {
     setSearch("");
   }
-
+  
   const [search, setSearch] = useState("");
+  console.log("textParam", textParam)
+  console.log("search",search)
+
   useEffect(() => {
     if (textParam != "") {
       setSearch(textParam);
@@ -57,7 +60,7 @@ const EpiScreen = (props:any) => {
             onPress={() => {
               props.navigation.navigate({
                 routeName: "Locations",
-                params: { textId: search, params: { textId: search } },
+                params: { textId: search },
               });
             }}
           />

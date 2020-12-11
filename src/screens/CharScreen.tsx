@@ -18,7 +18,7 @@ const CharScreen = (props:any) => {
   useEffect(() => {
     if (textParam != "") {
       setSearch(textParam);
-    }
+    } 
   }, [props.navigation.getParam("textId")]);
   const [search, setSearch] = useState("");
   function ClearInput() {
