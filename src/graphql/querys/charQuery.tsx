@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import Character from "../../components/character";
 
-interface ICharactersQueryProps {
+interface Props {
   text: string;
 }
 interface ICharacter {
@@ -16,7 +16,7 @@ interface ICharacter {
   image: string;
 }
 
-const CharQuery: FC<ICharactersQueryProps> = ({ text }) => {
+const CharQuery: FC<Props> = ({ text }) => {
   if (text.length > 2) {
     const [searchs, setSearchs] = useState<any>([]);
     const [page, setPage] = useState<number>(1);

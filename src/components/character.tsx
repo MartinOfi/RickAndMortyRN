@@ -9,23 +9,23 @@ import {
   View,
 } from "react-native";
 
-interface CharacterProp{
-  character:{
-  id:number,
-  name:string,
-  type:string,
-  gender:string,
-  species:string,
-  image:string
-  }
+interface Props {
+  character: {
+    id: number;
+    name: string;
+    type: string;
+    gender: string;
+    species: string;
+    image: string;
+  };
 }
 
-const Character:FC<CharacterProp> = ({ character }) => {
-  const [modal, setModal] = useState(false);
-  const HideModal = () => {
+const Character: FC<Props> = ({ character }) => {
+  const [modal, setModal] = useState<boolean>(false);
+  const HideModal = (): void => {
     setModal(false);
   };
-  const ShowModal = () => {
+  const ShowModal = (): void => {
     setModal(true);
   };
   return (
@@ -44,14 +44,12 @@ const Character:FC<CharacterProp> = ({ character }) => {
             source={{ uri: character.image }}
             style={{ width: 350, height: 350 }}
           />
-          <Text
-            style={{fontSize: 30,marginLeft:"25%", fontWeight: 'bold' }}
-          >
+          <Text style={{ fontSize: 30, marginLeft: "25%", fontWeight: "bold" }}>
             {character.name}
           </Text>
-          <Text style={{fontSize: 20}}>Type: {character.type}</Text>
-          <Text style={{fontSize: 20}}>Gender: {character.gender}</Text>
-          <Text style={{fontSize:20}}>Species: {character.species} </Text>
+          <Text style={{ fontSize: 20 }}>Type: {character.type}</Text>
+          <Text style={{ fontSize: 20 }}>Gender: {character.gender}</Text>
+          <Text style={{ fontSize: 20 }}>Species: {character.species} </Text>
           <Button title="Close" onPress={HideModal} />
         </View>
       </Modal>

@@ -40,7 +40,7 @@ const CharScreen = (props:any) => {
           placeholder="Ej:mor"
           value={search}
         />
-        {search != "" ? (
+        {search !== "" ? (
           <TouchableOpacity style={styles.cross} onPress={ClearInput}>
             <Entypo name="cross" size={30} color="black" />
           </TouchableOpacity>

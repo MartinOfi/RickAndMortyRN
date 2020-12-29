@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import Location from "../../components/location";
 
-interface ILocationsQueryProps {
+interface Props {
   text: string;
 
 }
@@ -20,7 +20,7 @@ interface ILocation {
     }
   ];
 }
-const LocQuery: FC<ILocationsQueryProps> = ({ text }) => {
+const LocQuery: FC<Props> = ({ text }) => {
   if (text.length > 2) {
     const [searchs, setSearchs] = useState<any>([]);
     const [page, setPage] = useState<number>(1);

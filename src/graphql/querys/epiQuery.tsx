@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import Episode from "../../components/episode";
 
-interface IEpisodesQueryProps {
+interface Props {
   text: string;
 }
 interface IEpisode {
@@ -19,7 +19,7 @@ interface IEpisode {
     }
   ];
 }
-const EpiQuery: FC<IEpisodesQueryProps> = ({ text }) => {
+const EpiQuery: FC<Props> = ({ text }) => {
   if (text.length > 2) {
     const [searchs, setSearchs] = useState<any>([]);
     const [page, setPage] = useState<number>(1);
