@@ -17,11 +17,8 @@ const EpiScreen = (props:any) => {
   }
   
   const [search, setSearch] = useState("");
-  console.log("textParam", textParam)
-  console.log("search",search)
-
   useEffect(() => {
-    if (textParam != "") {
+    if (textParam !== "") {
       setSearch(textParam);
     }
   }, []);

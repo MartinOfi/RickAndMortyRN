@@ -3,6 +3,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import Location from "../../components/location";
+import Card from "../../components/all";
 
 interface Props {
   text: string;
@@ -52,9 +53,6 @@ const LocQuery: FC<Props> = ({ text }) => {
       variables: { name: text, page: page },
     });
     
-    
-
-
     useEffect(() => {
       if (data && !loading && !error) {
         setSearchs([...data.locations.results]);
@@ -73,7 +71,7 @@ const LocQuery: FC<Props> = ({ text }) => {
           <Text style={{ fontSize: 20 }}>No results found</Text>
         </View>
       );
-      const NextPage=()=> {
+      const NextPage=():void=> {
         if (data.locations.info.pages != page) {
           setPage(data.locations.info.next);
           setLB(false);
@@ -82,7 +80,7 @@ const LocQuery: FC<Props> = ({ text }) => {
           }
         }
       }
-      const PrevPage=()=> {
+      const PrevPage=():void=> {
         if (page != 1) {
           setPage(page - 1);
           setRB(false);
@@ -96,9 +94,8 @@ const LocQuery: FC<Props> = ({ text }) => {
       <ScrollView style={{ width: "100%" }}>
         <View style={styles.imaglist}>
           {searchs.map((search:ILocation,index:number) => 
-            
               <View key={index}>
-                <Location location={search}  key={search.id} />
+                <Card data={search} type="locations" key={search.id} />
               </View>
             
           )}

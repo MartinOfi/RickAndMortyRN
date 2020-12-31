@@ -16,7 +16,7 @@ const SearcherScreen = (props: any) => {
     setSearch("");
   }
   useEffect(() => {
-    if (textParam != "") {
+    if (textParam !== "") {
       setSearch(textParam);
     }
   }, []);
@@ -62,7 +62,6 @@ const SearcherScreen = (props: any) => {
           <Button
             title="Episode"
             onPress={() => {
-              console.log(search)
               props.navigation.navigate({
                 routeName: "Episodes",
                 params: { textId: search },

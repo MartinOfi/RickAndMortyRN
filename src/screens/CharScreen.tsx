@@ -12,11 +12,11 @@ import { Entypo } from "@expo/vector-icons";
 const CharScreen = (props:any) => {
   var textParam:string = "";
 
-  if (props.navigation.getParam("textId") != undefined) {
+  if (props.navigation.getParam("textId") !== undefined) {
     textParam = props.navigation.getParam("textId");
   }
   useEffect(() => {
-    if (textParam != "") {
+    if (textParam !== "") {
       setSearch(textParam);
     } 
   }, [props.navigation.getParam("textId")]);

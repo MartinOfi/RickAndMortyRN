@@ -3,6 +3,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import Character from "../../components/character";
+import Card from "../../components/all";
 
 interface Props {
   text: string;
@@ -66,7 +67,7 @@ const CharQuery: FC<Props> = ({ text }) => {
           <Text style={{ fontSize: 20 }}>No results found</Text>
         </View>
       );
-      const NextPage=()=> {
+      const NextPage=():void=> {
         if (data.characters.info.pages != page) {
           setPage(data.characters.info.next);
           setLB(false);
@@ -75,7 +76,7 @@ const CharQuery: FC<Props> = ({ text }) => {
           }
         }
       }
-      const PrevPage=()=> {
+      const PrevPage=():void=> {
         if (page != 1) {
           setPage(page - 1);
           setRB(false);
@@ -91,7 +92,7 @@ const CharQuery: FC<Props> = ({ text }) => {
           {searchs.map((search: ICharacter) => {
             return (
               <View key={search.id}>
-                <Character character={search} />
+                <Card data={search} type="characters" key={search.id}/>
               </View>
             );
           })}

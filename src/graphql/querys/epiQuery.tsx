@@ -3,6 +3,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import Episode from "../../components/episode";
+import Card from "../../components/all";
 
 interface Props {
   text: string;
@@ -51,7 +52,7 @@ const EpiQuery: FC<Props> = ({ text }) => {
       variables: { name: text, page: page },
     });
 
-    const NextPage = () => {
+    const NextPage = ():void => {
       if (data.episodes.info.pages != page) {
         setPage(data.episodes.info.next);
         setLB(false);
@@ -60,7 +61,7 @@ const EpiQuery: FC<Props> = ({ text }) => {
         }
       }
     };
-    const PrevPage = () => {
+    const PrevPage = ():void => {
       if (page != 1) {
         setPage(page - 1);
         setRB(false);
@@ -93,7 +94,7 @@ const EpiQuery: FC<Props> = ({ text }) => {
         <View style={styles.imaglist}>
           {searchs.map((search: IEpisode, index: number) => (
             <View key={index}>
-              <Episode episode={search} />
+              <Card data={search} type="episodes" key={search.id} />
             </View>
           ))}
           <View style={styles.allButtons}>
