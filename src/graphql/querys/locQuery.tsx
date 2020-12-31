@@ -2,8 +2,7 @@ import React, { useState, useEffect, FC } from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/client";
 import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
-import Location from "../../components/location";
-import Card from "../../components/all";
+import Card from "../../components/CharLocEp";
 
 interface Props {
   text: string;

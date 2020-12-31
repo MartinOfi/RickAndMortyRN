@@ -9,8 +9,8 @@ import {
 import CharQuery from "../graphql/querys/charQuery";
 import { Entypo } from "@expo/vector-icons";
 
-const CharScreen = (props:any) => {
-  var textParam:string = "";
+const CharScreen = (props: any) => {
+  var textParam: string = "";
 
   if (props.navigation.getParam("textId") !== undefined) {
     textParam = props.navigation.getParam("textId");
@@ -18,10 +18,10 @@ const CharScreen = (props:any) => {
   useEffect(() => {
     if (textParam !== "") {
       setSearch(textParam);
-    } 
+    }
   }, [props.navigation.getParam("textId")]);
   const [search, setSearch] = useState("");
-  function ClearInput() {
+  function ClearInput(): void {
     setSearch("");
   }
 
@@ -51,7 +51,7 @@ const CharScreen = (props:any) => {
 
       <View style={styles.allbuttons}>
         <View style={styles.onebutton}>
-          <Button title="Characters" onPress={()=>{}}/>
+          <Button title="Characters" onPress={() => {}} />
         </View>
         <View style={styles.onebutton}>
           <Button

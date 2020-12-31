@@ -8,7 +8,7 @@ const HomeScreen:FC = (props:any) => {
     <View style={styles.screen}>
       <View>
         <Text style={{fontSize:28 }}>REACT NATIVE CHALLENGE</Text>
-        <Text style={{ paddingLeft: 75,fontSize:25 }}>Oficialdegui, Martin</Text>
+        <Text style={{ paddingLeft: 75,fontSize:25 }}>Oficialdegui, Martin </Text>
       </View>
       <View>
       <Button

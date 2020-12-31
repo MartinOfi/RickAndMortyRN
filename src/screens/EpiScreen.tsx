@@ -9,13 +9,13 @@ import {
 import EpiQuery from "../graphql/querys/epiQuery";
 import { Entypo } from "@expo/vector-icons";
 
-const EpiScreen = (props:any) => {
-  const textParam:string = props.navigation.getParam("textId");
+const EpiScreen = (props: any) => {
+  const textParam: string = props.navigation.getParam("textId");
 
-  function ClearInput() {
+  function ClearInput(): void {
     setSearch("");
   }
-  
+
   const [search, setSearch] = useState("");
   useEffect(() => {
     if (textParam !== "") {
@@ -24,7 +24,13 @@ const EpiScreen = (props:any) => {
   }, []);
   return (
     <View style={{ backgroundColor: "white" }}>
-      <View style={{ backgroundColor: "#7034df", flexDirection: "row" ,borderRadius:35}}>
+      <View
+        style={{
+          backgroundColor: "#7034df",
+          flexDirection: "row",
+          borderRadius: 35,
+        }}
+      >
         <TextInput
           style={styles.textinput}
           onChangeText={(text) => setSearch(text)}
@@ -63,7 +69,7 @@ const EpiScreen = (props:any) => {
           />
         </View>
         <View style={styles.onebutton}>
-          <Button title="Episode" onPress={()=>{}}/>
+          <Button title="Episode" onPress={() => {}} />
         </View>
       </View>
 
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     marginVertical: "5%",
     borderRadius: 5,
     backgroundColor: "white",
-    fontSize:25
+    fontSize: 25,
   },
   cross: {
     marginTop: 25,

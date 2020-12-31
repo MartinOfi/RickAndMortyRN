@@ -12,7 +12,7 @@ import { Entypo } from "@expo/vector-icons";
 const SearcherScreen = (props: any) => {
   const textParam = props.navigation.getParam("textId");
   const [search, setSearch] = useState("");
-  function ClearInput() {    
+  function ClearInput(): void {
     setSearch("");
   }
   useEffect(() => {

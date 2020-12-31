@@ -18,7 +18,7 @@ const Card: FC<Props> = ({ data, type }) => {
             style={styles.charactersimaglist}
             onPress={handlerOpenModal}
           >
-            <Text style={{ fontSize: 30, marginBottom: 20 }}>{data.name}</Text>
+            <Text style={styles.text}>{data.name}</Text>
             <Image
               source={{ uri: data.image }}
               style={{ width: 300, height: 300 }}
@@ -42,8 +42,8 @@ const Card: FC<Props> = ({ data, type }) => {
             style={styles.locAndEpisimglist}
             onPress={handlerOpenModal}
           >
-            <Text style={{ fontSize: 30, marginBottom: 20 }}>{data.name}</Text>
-            <Text style={{ fontSize: 30, marginBottom: 20 }}>
+            <Text style={styles.text}>{data.name}</Text>
+            <Text style={styles.text}>
               {data.dimension}
             </Text>
           </TouchableOpacity>
@@ -65,8 +65,8 @@ const Card: FC<Props> = ({ data, type }) => {
             style={styles.locAndEpisimglist}
             onPress={handlerOpenModal}
           >
-            <Text style={{ fontSize: 30, marginBottom: 20 }}>{data.name}</Text>
-            <Text style={{ fontSize: 30, marginBottom: 20 }}>
+            <Text style={styles.text}>{data.name}</Text>
+            <Text style={styles.text}>
               {data.episode}
             </Text>
           </TouchableOpacity>
@@ -115,5 +115,9 @@ const styles = StyleSheet.create({
   modal: {
     marginVertical: 20,
     marginHorizontal: 23,
+  },
+  text: {
+    fontSize: 30,
+    marginBottom: 20,
   },
 });
