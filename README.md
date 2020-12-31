@@ -12,8 +12,9 @@
   <p>Installing</p>
 <ol>
   <li>Run npm install --global expo-cli in cmd</li>
-  <li>Cambiar al directiorio RNchallengeTS (puede ser un cd RNchallengeTS)</li>
+  <li>Change to the RNchallengeTS directory </li>
   <li>Run yarn/npm start and wait a few moments</li>
+  <li>(You may need to disable the firewall to run on the emulator)</li>
 </ol> 
 <h2>Images</h2>
 <div display="inline">
