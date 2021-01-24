@@ -6,7 +6,7 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import CharQuery from "../graphql/querys/charQuery";
+import CharLocEpi from "../components/charlocepi";
 import { Entypo } from "@expo/vector-icons";
 
 const CharScreen = (props: any) => {
@@ -47,7 +47,7 @@ const CharScreen = (props: any) => {
         ) : null}
       </View>
 
-      <CharQuery text={search} />
+      <CharLocEpi text={search} option="characters" />
 
       <View style={styles.allbuttons}>
         <View style={styles.onebutton}>

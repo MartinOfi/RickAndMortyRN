@@ -6,8 +6,8 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import LocQuery from "../graphql/querys/locQuery";
 import { Entypo } from "@expo/vector-icons";
+import CharLocEpi from "../components/charlocepi";
 
 const SearcherScreen = (props: any) => {
   const textParam = props.navigation.getParam("textId");
@@ -41,7 +41,7 @@ const SearcherScreen = (props: any) => {
           </TouchableOpacity>
         ) : null}
       </View>
-      <LocQuery text={search} />
+      <CharLocEpi text={search} option="locations" />
 
       <View style={styles.allbuttons}>
         <View style={styles.onebutton}>

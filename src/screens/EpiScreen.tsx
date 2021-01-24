@@ -6,8 +6,8 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import EpiQuery from "../graphql/querys/epiQuery";
 import { Entypo } from "@expo/vector-icons";
+import CharLocEpi from "../components/charlocepi";
 
 const EpiScreen = (props: any) => {
   const textParam: string = props.navigation.getParam("textId");
@@ -43,7 +43,7 @@ const EpiScreen = (props: any) => {
           </TouchableOpacity>
         ) : null}
       </View>
-      <EpiQuery text={search} />
+      <CharLocEpi text={search} option="episodes" />
 
       <View style={styles.allbuttons}>
         <View style={styles.onebutton}>

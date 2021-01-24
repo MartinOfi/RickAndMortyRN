@@ -11,7 +11,7 @@ interface Props {
 const Card: FC<Props> = ({ data, type }) => {
   const { isOpen, handlerOpenModal } = useModal();
   if (data) {
-    if (type === "characters") {
+    if (type.startsWith("characters")) {
       return (
         <View key={data.id}>
           <TouchableOpacity
@@ -35,7 +35,7 @@ const Card: FC<Props> = ({ data, type }) => {
         </View>
       );
     }
-    if (type === "locations") {
+    if (type.startsWith("location")) {
       return (
         <View key={data.id}>
           <TouchableOpacity
@@ -58,13 +58,13 @@ const Card: FC<Props> = ({ data, type }) => {
         </View>
       );
     }
-    if (type === "episodes") {
+    if (type.startsWith("episode")) {
       return (
         <View key={data.id}>
           <TouchableOpacity
             style={styles.locAndEpisimglist}
             onPress={handlerOpenModal}
-          >
+          > 
             <Text style={styles.text}>{data.name}</Text>
             <Text style={styles.text}>
               {data.episode}

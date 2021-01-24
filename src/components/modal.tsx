@@ -20,7 +20,7 @@ interface Character {
 }
 const AllModal: FC<Props> = ({ isOpen, data, handlerOpenModal, type }) => {
   const chars = [];
-  if (type === "locations") {
+  if (data.residents !== undefined) {
     for (let i = 0; i < 5; i++) {
       chars.push(data.residents[i]);
       if (i === data.residents.length - 1) {
@@ -28,7 +28,7 @@ const AllModal: FC<Props> = ({ isOpen, data, handlerOpenModal, type }) => {
       }
     }
   }
-  if (type === "episodes") {
+  if (data.characters !== undefined) {
     for (let i = 0; i < 5; i++) {
       chars.push(data.characters[i]);
       if (i === data.characters.length - 1) {
@@ -58,7 +58,7 @@ const AllModal: FC<Props> = ({ isOpen, data, handlerOpenModal, type }) => {
             <Text style={styles.textName}>{data.name}</Text>
             <Text style={styles.text}>Type: {data.type}</Text>
             <Text style={styles.text}>Dimension: {data.dimension}</Text>
-            <Text style={{ fontSize: 20, marginTop: 15 }}>Species: </Text>
+            <Text style={{ fontSize: 20, marginTop: 5 }}>Species: </Text>
             
           </ScrollView>
         ) : null}
@@ -90,7 +90,7 @@ export default AllModal;
 
 const styles = StyleSheet.create({
   modal: {
-    marginVertical: 20,
+    marginVertical: 10,
     marginHorizontal: 23,
   },
   textName: {
@@ -99,8 +99,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   conteiner: {
+    marginLeft:5,
+    marginRight:5,
     flexDirection: "row",
-    marginVertical: 10,
+    marginTop:0,
     borderWidth: 1,
     borderRadius: 5,
   },
@@ -118,12 +120,3 @@ const styles = StyleSheet.create({
       fontSize: 20,
     }
 });
-
-{
-  /* {residents.map((res: Location,index) => (
-          <View style={styles.conteiner} key={index}>
-            <Image source={{ uri: res.image }} style={styles.img} />
-            <Text style={styles.textName}>{res.name}</Text>
-          </View>
-        ))} */
-}
